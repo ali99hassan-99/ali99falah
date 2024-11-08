@@ -1,0 +1,73 @@
+/* تنسيق عام */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #87CEEB; /* اللون السمائي */
+    margin: 0;
+    padding: 0;
+}
+
+/* شريط الأخبار المتحرك */
+.news-ticker {
+    background-color: #1E90FF; /* لون أزرق داكن */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+}
+
+.news-ticker p {
+    position: absolute;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+    margin: 0;
+}
+
+/* تأثير التحرك */
+@keyframes scroll {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+/* تنسيق العنوان الرئيسي */
+header {
+    background-color: #4682B4; /* لون أزرق متوسط */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* تنسيق المحتوى */
+.content {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* تنسيق الفوتر */
+footer {
+    background-color: #1E90FF; /* نفس لون شريط الأخبار */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
