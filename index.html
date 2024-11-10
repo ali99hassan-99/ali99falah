@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>علي حسن للبرمجيات</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="news-ticker">
+        <p id="news-content"> عن الإمام الصَّادق عليه السلام أنّه قال: "تنافسوا في المعروف لإخوانكم وكونوا من أهله, فإنّ للجنة باباً يقال له المعروف، لا يدخله إلّا من اصطنع المعروف في الحياة الدُّنيا, فإن العبد ليمشي في حاجة أخيه المؤمن فيوكّل الله به ملكين، واحداً عن يمينه وآخر عن شماله، يستغفران له ربّه ويدعوان بقضاء حاجته..اسألكم الدعاء لي ولوالدي..."</p>
+    </div>
+
+    <header>
+        <h1>علي حسن للبرمجيات</h1>
+    </header>
+
+    <section class="profile">
+        <img src="a1.jpg" alt="صورتك" class="profile-img">
+        <h2>مرحبًا بك في مدونتي علي حسن للبرمجيات</h2>
+        <p>نحن نقدم حلولاً برمجية مبتكرة تساعد في تطوير أعمالك وتقنياتك.</p>
+    </section>
+
+    <section class="search-bar">
+        <p>للبحث عن مقابلتك، اكتب اسمك الرباعي واضغط "بحث"</p>
+        <input type="text" id="search" placeholder="ابحث هنا..." />
+        <button onclick="searchFunction()">بحث</button>
+        <p id="search-result"></p>
+    </section>
+
+    <!-- قسم الخدمات الأخرى -->
+    <section class="additional-services">
+        <p>خدمات اخرى يمكنك الاستفادة منها</p>
+        <div class="buttons">
+            <a href="https://t.me/ali2024hasbot" class="service-button" target="_blank">بوت البحث عن مقابلتك</a>
+            <a href="https://t.me/ali99113bot" class="service-button" target="_blank">بوت ارسال اسم(بحث يدوي)</a>
+            <a href="https://spa.gov.iq/umbrella/search.aspx" class="service-button" target="_blank">موقع مضلتي</a>
+        </div>
+    </section>
+
+    <div class="footer-space"></div>
+
+    <footer>
+        <p>يمكنك التواصل معي على:</p>
+        <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=100079286824119&mibextid=ZbWKwL" class="facebook">فيسبوك</a></li>
+            <li><a href="https://t.me/a9_9h9" class="telegram">تليجرام</a></li>
+            <li><a href="https://wa.me/9647822621995" class="whatsapp">واتساب</a></li>
+        </ul>
+        <p>جميع الحقوق محفوظة للمطور علي حسن</p>
+    </footer>
+
+    <script>
+        let sheetData = [];
+
+        function loadExcelFile(url) {
+            fetch(url)
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    console.log('Data loaded:', sheetData);
+                })
+                .catch(error => console.error('Error loading the file:', error));
+        }
+
+        window.onload = function() {
+            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVV8V3W5SPPRd7c4X4hy9PSMhuxhRGBdi4eFGwua4xNQmCJatGEM2dsT_j-Mq6wA/pub?output=xlsx';
+            loadExcelFile(url);
+        };
+
+        function searchFunction() {
+            const searchTerm = document.getElementById('search').value.trim().toLowerCase();
+            const result = document.getElementById('search-result');
+            if (!searchTerm) {
+                result.innerText = 'يرجى إدخال اسم للبحث.';
+                return;
+            }
+
+            const found = sheetData.find(row => row[0] && row[0].toLowerCase().includes(searchTerm));
+            if (found) {
+                result.innerText = `الاسم: ${found[0]}, لقد قابلت في: ${found[1] || 'غير متوفرة'}`;
+            } else {
+                result.innerText = 'لم يتم العثور على البيانات.';
+            }
+        }
+    </script>
+
+</body>
+</html>
