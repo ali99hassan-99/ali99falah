@@ -1,212 +1,148 @@
-/* إضافة الخط */
+/* استيراد الخطوط */
 @font-face {
-    font-family: 'fnaltasmeem';
-    src: url('fonts/fnaltasmeem A.H..H (101).ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'bein-ar-black';
+    src: url('fonts/bein-ar-black_0 (1).ttf') format('truetype');
 }
 
-/* تنسيق عام */
+@font-face {
+    font-family: 'timesbd';
+    src: url('fonts/timesbd_1.ttf') format('truetype');
+}
+
+/* ضبط الاتجاه للكتابة من اليمين إلى اليسار */
 body {
-    font-family: 'fnaltasmeem', sans-serif;
+    font-family: 'bein-ar-black', Arial, sans-serif;
     direction: rtl;
-    background-color: #87CEEB; /* اللون السماوي */
+    text-align: right;
     margin: 0;
     padding: 0;
-}
-
-/* شريط الأخبار المتحرك */
-.news-ticker {
-    background-color: #1E90FF; /* لون أزرق داكن */
-    color: white;
-    padding: 10px;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    height: 40px;
+    background-color: #f5f5f5;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* توسيط العناصر أفقيًا */
     align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
-/* نص الشريط المتحرك */
-.news-ticker p {
-    position: absolute;
-    white-space: nowrap;
-    animation: scroll 30s linear infinite;
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* تأثير التحرك */
-@keyframes scroll {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-/* تنسيق العنوان الرئيسي */
-header {
-    background-color: #4682B4; /* لون أزرق متوسط */
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-/* تنسيق صورة الشخصية */
-.profile {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* تنسيق شريط البحث */
-.search-bar {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.search-bar p {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.search-bar input {
-    padding: 10px;
-    font-size: 16px;
-    width: 70%;
-    max-width: 400px;
-    border: 2px solid #4682B4;
-    border-radius: 5px;
-}
-
-.search-bar button {
-    padding: 10px 20px;
-    background-color: #4682B4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #1E90FF;
-}
-
-/* قسم الخدمات الأخرى */
-.additional-services {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.additional-services p {
-    font-size: 1.2em;
-    font-weight: bold;
+/* تنسيق العنوان */
+h1 {
     color: #333;
-    margin-bottom: 10px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.service-button {
-    padding: 10px 15px;
-    background-color: #0088cc; /* لون تيليجرام */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1em;
-    border: 2px solid #0088cc; /* إضافة حد باللون نفسه */
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.service-button:hover {
-    background-color: #007bb5; /* اللون عند المرور فوق الزر */
-    border-color: #007bb5; /* تغيير لون الحد عند المرور */
-}
-
-/* أزرار بوت تليجرام */
-.telegram-bot {
+    font-size: 24px;
     text-align: center;
-    margin: 30px 0;
+    margin: 0;
+    padding-top: 20px;
 }
 
-.telegram-bot button {
-    background-color: #0088cc;
-    padding: 15px 30px;
-    font-size: 18px;
+/* تنسيق مستطيل البحث */
+#searchBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%; /* جعل العرض 50% */
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق حقل البحث */
+#searchInput {
+    padding: 8px;
+    width: 80%; /* عرض حقل البحث 80% */
+    font-size: 14px;
+    text-align: right;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 40px;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #4CAF50;
+}
+
+/* تنسيق الزر */
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0; /* المسافة بين الأزرار نفسها */
-    width: 250px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px;
+    height: 40px;
+    width: 18%; /* عرض الزر 18% */
 }
 
-.telegram-bot button:hover {
-    background-color: #006fa6;
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
-/* تنسيق الفوتر */
-footer {
-    background-color: #1E90FF;
-    color: white;
+button:active {
+    transform: scale(0.98);
+}
+
+/* تنسيق الجدول */
+table {
+    width: 70%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: 'timesbd', Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
     padding: 10px;
     text-align: center;
-    margin-top: 100px; /* المسافة بين الأزرار ونهاية الصفحة */
+    vertical-align: middle;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-footer ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-footer ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-footer a {
+th {
+    background-color: #4CAF50;
     color: white;
-    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-footer a.facebook {
-    background-color: #3b5998;
-    padding: 5px 10px;
-    border-radius: 5px;
+td {
+    background-color: #fff;
+    font-size: 14px;
 }
 
-footer a.telegram {
-    background-color: #0088cc;
-    padding: 5px 10px;
-    border-radius: 5px;
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-footer a.whatsapp {
-    background-color: #25d366;
-    padding: 5px 10px;
-    border-radius: 5px;
+tr:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
 }
 
-footer a i {
-    margin-left: 5px;
+td:hover {
+    background-color: #e2f7e2;
+    font-size: 15px;
+    transform: scale(1.05);
+    transition: transform 0.2s, font-size 0.2s, background-color 0.3s;
 }
 
-footer a:hover {
-    opacity: 0.8;
+tr:first-child th {
+    border-top: 2px solid #4CAF50;
+}
+
+tr:last-child td {
+    border-bottom: 2px solid #4CAF50;
 }
