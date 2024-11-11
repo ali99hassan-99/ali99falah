@@ -14,6 +14,7 @@
 
     <header>
         <h1>علي حسن للبرمجيات</h1>
+        <p id="visitor-counter">عدد الزوار: <span id="visitor-count">0</span></p>
     </header>
 
     <section class="profile">
@@ -66,10 +67,19 @@
                 .catch(error => console.error('Error loading the file:', error));
         }
 
-        window.onload = function() {
-            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVV8V3W5SPPRd7c4X4hy9PSMhuxhRGBdi4eFGwua4xNQmCJatGEM2dsT_j-Mq6wA/pub?output=xlsx';
-            loadExcelFile(url);
-        };
+        function updateVisitorCount() {
+            // قراءة عدد الزيارات من localStorage، أو تعيينه إلى 0 إذا لم يكن موجودًا
+            let visitorCount = localStorage.getItem('visitorCount') || 0;
+            
+            // تحويل العدد إلى رقم وزيادته بمقدار 1
+            visitorCount = parseInt(visitorCount) + 1;
+            
+            // تحديث عدد الزيارات في localStorage
+            localStorage.setItem('visitorCount', visitorCount);
+            
+            // عرض العدد على الصفحة
+            document.getElementById('visitor-count').innerText = visitorCount;
+        }
 
         function searchFunction() {
             const searchTerm = document.getElementById('search').value.trim().toLowerCase();
@@ -86,7 +96,13 @@
                 result.innerText = 'لم يتم العثور على البيانات.';
             }
         }
-    </script>
 
+        // استدعاء الدوال عند تحميل الصفحة
+        window.onload = function() {
+            updateVisitorCount();
+            const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVV8V3W5SPPRd7c4X4hy9PSMhuxhRGBdi4eFGwua4xNQmCJatGEM2dsT_j-Mq6wA/pub?output=xlsx';
+            loadExcelFile(url);
+        };
+    </script>
 </body>
 </html>
