@@ -1,3 +1,14 @@
+/* استيراد الخطوط */
+@font-face {
+    font-family: 'bein-ar-black';
+    src: url('fonts/bein-ar-black_0 (1).ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'timesbd';
+    src: url('fonts/timesbd_1.ttf') format('truetype');
+}
+
 /* إزالة الهوامش والحشوات من html و body */
 html, body {
     margin: 0;
@@ -7,7 +18,7 @@ html, body {
     direction: rtl;
     text-align: right;
     background-color: #f5f5f5;
-    display: block; /* جعل الجسم عنصر كتلة */
+    display: block;
 }
 
 /* تنسيق العنوان */
@@ -30,8 +41,8 @@ h1 {
     border-radius: 8px;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: auto;  /* التوسيط الأفقي */
-    margin-right: auto; /* التوسيط الأفقي */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* تنسيق حقل البحث */
@@ -80,13 +91,13 @@ table {
     width: 70%;
     margin-top: 20px;
     border-collapse: collapse;
-    font-family: 'timesbd', Arial, sans-serif;
+    font-family: 'timesbd', Arial, sans-serif;  /* تحديد خط الجدول */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
-    margin-left: auto;  /* التوسيط الأفقي */
-    margin-right: auto; /* التوسيط الأفقي */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* تنسيق الجدول والنصوص */
