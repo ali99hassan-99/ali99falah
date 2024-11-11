@@ -146,3 +146,55 @@ tr:first-child th {
 tr:last-child td {
     border-bottom: 2px solid #4CAF50;
 }
+
+/* تنسيق حقوق أسفل الصفحة */
+footer {
+    font-family: 'timesbd', Arial, sans-serif;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #4CAF50; /* لون الروابط */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #45a049; /* لون الروابط عند التحويم */
+}
+
+/* تنسيق الأيقونات في التذييل */
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    font-size: 20px; /* حجم الأيقونات */
+    color: #fff;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #4CAF50; /* تغيير اللون عند التحويم */
+}
