@@ -68,17 +68,23 @@
         }
 
         function updateVisitorCount() {
-            // قراءة عدد الزيارات من localStorage، أو تعيينه إلى 0 إذا لم يكن موجودًا
-            let visitorCount = localStorage.getItem('visitorCount') || 0;
-            
-            // تحويل العدد إلى رقم وزيادته بمقدار 1
-            visitorCount = parseInt(visitorCount) + 1;
-            
-            // تحديث عدد الزيارات في localStorage
-            localStorage.setItem('visitorCount', visitorCount);
-            
-            // عرض العدد على الصفحة
-            document.getElementById('visitor-count').innerText = visitorCount;
+            // التحقق مما إذا كانت هذه هي الزيارة الأولى
+            if (!localStorage.getItem('firstVisit')) {
+                // تعيين متغير firstVisit لتجنب زيادة العداد عند كل تحميل للصفحة
+                localStorage.setItem('firstVisit', 'yes');
+                
+                // قراءة عدد الزوار من localStorage أو تعيينه إلى 0 إذا لم يكن موجودًا
+                let visitorCount = localStorage.getItem('visitorCount') || 0;
+                
+                // تحويل العدد إلى رقم وزيادته بمقدار 1
+                visitorCount = parseInt(visitorCount) + 1;
+                
+                // تحديث عدد الزيارات في localStorage
+                localStorage.setItem('visitorCount', visitorCount);
+            }
+
+            // عرض العدد الحالي من localStorage على الصفحة
+            document.getElementById('visitor-count').innerText = localStorage.getItem('visitorCount');
         }
 
         function searchFunction() {
