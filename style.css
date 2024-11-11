@@ -1,27 +1,13 @@
-/* استيراد الخطوط */
-@font-face {
-    font-family: 'bein-ar-black';
-    src: url('fonts/bein-ar-black_0 (1).ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'timesbd';
-    src: url('fonts/timesbd_1.ttf') format('truetype');
-}
-
-/* ضبط الاتجاه للكتابة من اليمين إلى اليسار */
-body {
+/* إزالة الهوامش والحشوات من html و body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'bein-ar-black', Arial, sans-serif;
     direction: rtl;
     text-align: right;
-    margin: 0;
-    padding: 0;
     background-color: #f5f5f5;
-    display: flex;
-    justify-content: center; /* توسيط العناصر أفقيًا */
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    display: block; /* جعل الجسم عنصر كتلة */
 }
 
 /* تنسيق العنوان */
@@ -33,23 +19,25 @@ h1 {
     padding-top: 20px;
 }
 
-/* تنسيق مستطيل البحث */
+/* توسيط مستطيل البحث أفقيًا */
 #searchBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%; /* جعل العرض 50% */
+    width: 50%;
     margin-top: 20px;
     background-color: #fff;
     border-radius: 8px;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto;  /* التوسيط الأفقي */
+    margin-right: auto; /* التوسيط الأفقي */
 }
 
 /* تنسيق حقل البحث */
 #searchInput {
     padding: 8px;
-    width: 80%; /* عرض حقل البحث 80% */
+    width: 80%;
     font-size: 14px;
     text-align: right;
     border: 2px solid #ccc;
@@ -75,7 +63,7 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-left: 10px;
     height: 40px;
-    width: 18%; /* عرض الزر 18% */
+    width: 18%;
 }
 
 button:hover {
@@ -97,8 +85,11 @@ table {
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
+    margin-left: auto;  /* التوسيط الأفقي */
+    margin-right: auto; /* التوسيط الأفقي */
 }
 
+/* تنسيق الجدول والنصوص */
 table, th, td {
     border: 1px solid #ddd;
 }
@@ -166,7 +157,7 @@ footer p {
 }
 
 footer a {
-    color: #4CAF50; /* لون الروابط */
+    color: #4CAF50;
     text-decoration: none;
     font-weight: bold;
     margin: 0 5px;
@@ -174,7 +165,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #45a049; /* لون الروابط عند التحويم */
+    color: #45a049;
 }
 
 /* تنسيق الأيقونات في التذييل */
@@ -196,5 +187,5 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-    color: #4CAF50; /* تغيير اللون عند التحويم */
+    color: #4CAF50;
 }
